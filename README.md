@@ -296,4 +296,32 @@ ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DI
 set @@global.sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 ```
 
+> 34. Base32编码与解码
+```
+public static String base36Encoding(long number){
+        if(number<36){
+            return String.valueOf(ALPHABET.charAt((int)number));
+        }
+        String b36 = "";
+        while (number!=0){
+            int n = (int)(number%36);
+            number = number/36;
+            b36 = String.valueOf(ALPHABET.charAt(n))+b36;
+        }
+        return b36;
+
+    }
+
+    public static long base36Decoding(String str){
+        str = str.trim();
+        str = new StringBuilder(str).reverse().toString();
+        if(str.length() < 1)
+            throw new IllegalArgumentException("str must not be empty.");
+        long result = 0;
+        for (int i = 0; i < str.length(); i++) {
+            result += ALPHABET.indexOf(str.charAt(i)) * Math.pow(36, i);
+        }
+        return result;
+    }
+```
 
