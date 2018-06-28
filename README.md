@@ -324,4 +324,21 @@ public static String base36Encoding(long number){
         return result;
     }
 ```
+> 35. 安装MySQL 8，用root用户在MySQL Workbench连接数据库是报错：
 
+Authentication plugin 'caching_sha2_password' cannot be loaded: dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 2): image not found
+```
+查询mysql库的user表：
+
+mysql>use mysql; 
+mysql>select user, host, plugin from user\G; 
+*************************** 2. row *************************** 
+                 user: root 
+                 host: % 
+               plugin: caching_sha2_password 
+root用户使用caching_sha2_password插件加密，原因就是客户端没有caching_sha2_password插件。
+
+修改root密码加密方式为：mysql_native_password
+
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+```
