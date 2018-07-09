@@ -342,3 +342,7 @@ root用户使用caching_sha2_password插件加密，原因就是客户端没有c
 
 ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
+> 36. github上的项目树形结构Chrome插件
+```
+octotree
+```
