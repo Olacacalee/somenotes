@@ -1,5 +1,7 @@
 # 一些配置
 
+- [js替换所有空格为&nbsp](#jstihuan)
+
 > 1. java IDE中报OutOfMemory异常一般都是因为给IDE分配的内存不足，导致内存溢出。解决方法：
 ```
 -Xms256M -Xmx1024M -XX:PermSize=64M -XX:MaxPermSize=128M
@@ -324,6 +326,8 @@ public static String base36Encoding(long number){
         return result;
     }
 ```
+### js替换所有空格为&nbsp
+
 > 35. 安装MySQL 8，用root用户在MySQL Workbench连接数据库是报错：
 
 Authentication plugin 'caching_sha2_password' cannot be loaded: dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 2): image not found
