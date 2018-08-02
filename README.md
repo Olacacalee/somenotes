@@ -350,3 +350,18 @@ ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
 octotree
 ```
+> 37. 在网页调取QQ聊天框
+```
+<a  href="javascript:;" onclick="loadQQ()">
+          <img border="0" style="display: initial;" src="http://wpa.qq.com/pa?p=2:624577661:41 &r=0.28504395019850864" alt="点击这里给我发消息" title="点击这里给我发消息">
+         </a>
+ var loadQQ = function () {
+    /*个人qq*/
+    $("#getSignQQ").remove();
+    var frame = document.createElement("iframe");
+    frame.id = "getSignQQ";
+    frame.src = "https://wpa.qq.com/msgrd?v=3&uin=3498761529&site=qq&menu=yes"
+    frame.style.display = "none";
+    document.body.appendChild(frame);
+  }
+```
