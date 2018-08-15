@@ -369,3 +369,10 @@ octotree
 ```
 redis-cli -p 6380 -a 123456 keys "cms:tenant:301*" | xargs redis-cli -p 6380 -a 123456 del
 ```
+> 39. Linux设置系统时间
+```
+1、查看系统时间
+   date                                         
+2、设置当前系统时间为2015年5月8日19点48分0秒
+   date  -s "2015-5-8 19:48:00" 
+```
