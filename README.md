@@ -365,3 +365,7 @@ octotree
     document.body.appendChild(frame);
   }
 ```
+> 38. redis批量删除
+```
+redis-cli -p 6380 -a 123456 keys "cms:tenant:301*" | xargs redis-cli -p 6380 -a 123456 del
+```
