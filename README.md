@@ -376,3 +376,7 @@ redis-cli -p 6380 -a 123456 keys "cms:tenant:301*" | xargs redis-cli -p 6380 -a 
 2、设置当前系统时间为2015年5月8日19点48分0秒
    date  -s "2015-5-8 19:48:00" 
 ```
+> 39. mysql查询，group by之后查询出较大的值
+```
+select max(student_id) from student where tenant_id = 1062 group by no having count(1)>1
+```
