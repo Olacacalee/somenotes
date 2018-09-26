@@ -380,3 +380,7 @@ redis-cli -p 6380 -a 123456 keys "cms:tenant:301*" | xargs redis-cli -p 6380 -a 
 ```
 select max(student_id) from student where tenant_id = 1062 group by no having count(1)>1
 ```
+> 40. 下载网易云音乐
+```
+http://music.163.com/song/media/outer/url?id=xxxxxxx.mp3
+```
