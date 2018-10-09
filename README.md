@@ -384,3 +384,32 @@ select max(student_id) from student where tenant_id = 1062 group by no having co
 ```
 http://music.163.com/song/media/outer/url?id=xxxxxxx.mp3
 ```
+> 41. mysql链接数据库总是出现超时或者丢失链接
+```
+1. 设置timeout时间
+2. 在Windows上，是微软的一个补丁引起的，即：KB967723
+  解决办法：
+
+打开注册表：
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+在里面添加两项：
+
+数值名称： MaxUserPort 
+值类型: DWORD
+值数据： 65534
+有效范围： 5000-65534 (十进制)
+默认值： 0x1388 (5000 十进制)
+说明： 此参数将控制程序从系统请求任何可用的用户端口时使用的最大端口数。 通常，1024 的值和包含的 5000 之间分配临时的 （短) 端口。
+ 
+
+数值名称： TcpTimedWaitDelay
+值类型: DWORD
+值数据： 30  （十进制）
+默认值：  240 ( 十进制)
+
+修改完成后，重启计算机，即可解决问题。
+
+另，网上有一个方法是卸载这个补丁或关闭自动更新，此方法不可取也不安全
+3. 之前使用高校邦的框架会出现问题，后来使用JDBC链接数据库解决
+```
