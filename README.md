@@ -413,3 +413,11 @@ HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
 另，网上有一个方法是卸载这个补丁或关闭自动更新，此方法不可取也不安全
 3. 之前使用高校邦的框架会出现问题，后来使用JDBC链接数据库解决
 ```
+> 42. 使用navicat 连接 mysql 8.0.11 报  "2059 - authentication plugin 'caching_sha2_password' ..."
+```
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
+
+原因：mysql 8.0 默认使用 caching_sha2_password 身份验证机制 —— 从原来的 mysql_native_password 更改为 caching_sha2_password。 
+从 5.7 升级 8.0 版本的不会改变现有用户的身份验证方法，但新用户会默认使用新的 caching_sha2_password 。
+客户端不支持新的加密方式。
+```
