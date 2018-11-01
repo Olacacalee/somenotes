@@ -421,3 +421,7 @@ ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
 从 5.7 升级 8.0 版本的不会改变现有用户的身份验证方法，但新用户会默认使用新的 caching_sha2_password 。
 客户端不支持新的加密方式。
 ```
+> 43. mybatis 一对多无法返回子对象结果集
+```
+在配置文件中加入 <setting name="autoMappingBehavior" value="FULL"/>
+```
