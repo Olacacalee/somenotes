@@ -425,3 +425,11 @@ ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
 ```
 在配置文件中加入 <setting name="autoMappingBehavior" value="FULL"/>
 ```
+> 44. Google扩展程序
+```
+  1. 划词翻译
+  2. 购物党
+  3. Octotree
+  4. 掘金
+  5. AdBlock Plus
+```
