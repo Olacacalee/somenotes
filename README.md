@@ -433,3 +433,12 @@ ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
   4. 掘金
   5. AdBlock Plus
 ```
+> 45. 在CentOS中加入sl命令，跑小火车
+```
+  1. yum update
+  2. yum install wget
+  3. wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+  4. rpm -ivh epel-release-6-8.noarch.rpm
+  5. yum install sl
+  6. sl
+```
