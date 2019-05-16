@@ -442,3 +442,10 @@ ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
   5. yum install sl
   6. sl
 ```
+
+> 46. java调用elasticsearch的时候总是报错 NoNodeAvailableException[None of the configured nodes are available: [{#transport#-1}{I7ebp0-GS7eI-UKnjb9J-w}{127.0.0.1}{127.0.0.1:9300}]]
+```
+ 1. 端口要用9300，因为9200是用于浏览器访问，9300是tcp是用于client调用
+ 2. 当前elasticsearch的版本与java中使用的elasticsearch的jar包的版本不一致
+```
+
