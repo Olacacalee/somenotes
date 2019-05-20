@@ -449,3 +449,24 @@ ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
  2. 当前elasticsearch的版本与java中使用的elasticsearch的jar包的版本不一致
 ```
 
+> 47. 使用logstash-codec-avro插件从kafka中解码时，对于int或者long类型的数字解码后值不正确，原因是配置logstash的input中kafka的配置少了解析配置,正确配置如下
+```
+input {
+    kafka {
+        bootstrap_servers => ["127.0.0.1:9092"]
+        group_id => "logstash"
+        topics => ["json_gxb_modulename_x_test"]
+        key_deserializer_class => "org.apache.kafka.common.serialization.StringDeserializer"
+        value_deserializer_class => "org.apache.kafka.common.serialization.ByteArrayDeserializer"
+        codec => avro {
+            schema_uri => "/Users/cayley/Downloads/elk/schema/GxbJSONEventRecord.avsc"
+        }
+    }
+}
+output {
+     file{
+          path => "/Users/cayley/Downloads/file.txt"
+     }
+}
+```
+
