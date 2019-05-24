@@ -468,5 +468,33 @@ output {
      }
 }
 ```
+> 48. ELK日志使用index过滤后不起作用
+```
+在logstash的配置文件中增加type类型，不同的type输出到不同的index，配置如下：
+input {
+ kafka {
+    bootstrap_servers => ["192.168.30.80:9092"]
+    group_id => "logstash"
+    topics => ["json_gxb_hybrid_signup"]
+    type => "json"
+    key_deserializer_class => "org.apache.kafka.common.serialization.StringDeserializer"
+    value_deserializer_class => "org.apache.kafka.common.serialization.ByteArrayDeserializer"
+    consumer_threads => 5
+    codec => avro {
+        schema_uri => "/usr/share/logstash/schema/GxbJSONEventRecord.avsc"
+    }
+  }
+}
+output {
+
+  if[type] == "json"{
+    elasticsearch{
+       hosts=> "http://192.168.70.27:9200"
+       index=> "json-gxb-hybird-%{+YYYY.MM.DD}"
+    }
+  }
+
+}
+```
 
 
