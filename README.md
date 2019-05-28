@@ -496,5 +496,18 @@ output {
 
 }
 ```
-
+> 49. Java读取properties配置文件时，中文乱码解决方法
+```
+public static String getConfig(String key) {
+    Properties pros = new Properties();
+    String value = "";
+    try {
+        pros.load(new InputStreamReader(Object.class.getResourceAsStream("/properties.properties"), "UTF-8"));
+        value = pros.get(key).toString();
+    } catch (IOException e) {
+        log.error(e.getMessage());
+    }
+    return value;
+}
+```
 
