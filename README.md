@@ -510,4 +510,13 @@ public static String getConfig(String key) {
     return value;
 }
 ```
+> 50. 使用Jsoup爬虫访问HTTPS网站报错unable to find valid certification path to requested target。解决方法如下：
+```
+忽略掉SSL即可：
+Jsoup.connect(url)
+.timeout(30000)
+.userAgent(UA)
+.validateTLSCertificates(false)
+.get()
+```
 
