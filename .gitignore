@@ -1,0 +1,13 @@
+.idea/
+.settings/
+target/
+node_modules/
+dist/
+target/
+*.iml
+*.class
+.DS_Store
+logs/
+.classpath
+.project
+.factorypath
